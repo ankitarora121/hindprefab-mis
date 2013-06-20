@@ -1,12 +1,9 @@
-<html>
-<body>
-<img src="cover.gif" width="100%">
-<form>
+<?php include("_barebones.php"); ?>
 
 <br><br><br>
 <center>
 <table>
-<tr>
+<tr>me
 <td>
 <a href="login.php">
 USER LOGIN
@@ -21,9 +18,5 @@ ADMIN LOGIN
 </TD>
 </TR>
 </TABLE>
-
-
-
-
 </body>
 </html>

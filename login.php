@@ -1,8 +1,12 @@
+<?php include("_barebones.php"); ?>
+
+
+
 <?php 
 
  // Connects to your Database 
 
- mysql_connect("127.0.0.1", "root", "") or die(mysql_error()); 
+ mysql_connect("127.0.0.1", "root", "itsover") or die(mysql_error()); 
 
  mysql_select_db("hpl") or die(mysql_error()); 
 
@@ -140,33 +144,75 @@
 
  ?> 
 
- <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post"> 
+<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
+<fieldset>
 
- <table border="0"> 
+<!-- Form Name -->
+<legend>User Login</legend>
 
- <tr><td colspan=2><h1>Login</h1></td></tr> 
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="username">Username</label>
+  <div class="controls"> 
+    <input id="username" name="username" type="text" placeholder="" class="input-xlarge" required="" style="height:30px"  maxlength="40">
+    
+  </div>
+</div>
 
- <tr><td>Username:</td><td> 
+<!-- Password input-->
+<div class="control-group">
+  <label class="control-label" for="pass">Password</label>
+  <div class="controls">
+    <input id="pass" name="pass" type="password" placeholder="" class="input-xlarge" style="height:30px"  maxlength="50" required = "">
+    
+  </div>
+</div>
 
- <input type="text" name="username" maxlength="40"> 
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="singlebutton"></label>
+  <div class="controls">
+   	<input type="submit" name="submit" value="Login" class="btn btn-primary">  
 
- </td></tr> 
+  </div>
+</div>
 
- <tr><td>Password:</td><td> 
+</fieldset>
+</form>
 
- <input type="password" name="pass" maxlength="50"> 
+<!-- 
 
- </td></tr> 
 
- <tr><td colspan="2" align="right"> 
+	 <table border="0"> 
 
- <input type="submit" name="submit" value="Login"> 
+	 <tr><td colspan=2><h1>Login</h1></td></tr> 
 
- </td></tr> 
+	 <tr><td><label class="control-label">Username:</label></td><td> 
 
- </table> 
+<div class="controls">
+	 <input type="text" name="username" maxlength="40"> 
+</div>
+	 </td></tr> 
 
- </form> 
+	 <tr><td><label class="control-label">Password:</label></td><td> 
+
+<div class="controls">
+	 <input type="password" name="pass" maxlength="50"> 
+</div>
+	 </td></tr> 
+
+	 <tr><td colspan="2" align="right"> 
+
+<div class="controls">
+	 <input type="submit" name="submit" value="Login"> 
+</div>
+	 </td></tr> 
+
+	 </table> 
+
+	 </form> -->
+
+
 
  <?php 
 
@@ -176,4 +222,5 @@
 
  ?> 
 
- 
+ </body>
+ </html>
