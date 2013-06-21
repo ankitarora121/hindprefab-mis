@@ -1,9 +1,10 @@
+<?php include("_barebones.php"); ?>
 
 
  <?php 
  // Connects to your Database 
 
- mysql_connect("127.0.0.1", "root", "") or die(mysql_error()); 
+ mysql_connect("127.0.0.1", "ankit", "itsover") or die(mysql_error()); 
 
  mysql_select_db("hpl") or die(mysql_error()); 
 
@@ -90,8 +91,54 @@ or die(mysql_error());
  ?>
 
 
+<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST"> 
+<fieldset>
+
+<!-- Form Name -->
+<legend>Create New User</legend>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="username">Username</label>
+  <div class="controls">
+    <input id="username" name="username" type="text" placeholder="" class="input-xlarge" required="" maxlength="60" style="height:30px">
+    
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="control-group">
+  <label class="control-label" for="pass">Password</label>
+  <div class="controls">
+    <input id="pass" name="pass" type="password" placeholder="" class="input-xlarge" required="" maxlength="10" style="height:30px">
+    
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="control-group">
+  <label class="control-label" for="pass2">Confirm Password</label>
+  <div class="controls">
+    <input id="pass2" name="pass2" type="password" placeholder="" class="input-xlarge" required="" maxlength="10" style="height:30px">
+    
+  </div>
+</div>
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="submit"></label>
+  <div class="controls">
+		<input type="submit" name="submit" value="Register" class="btn btn-primary">
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+
+
  
- <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+<!--  <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
  <table border="0">
 
@@ -114,9 +161,9 @@ or die(mysql_error());
  </td></tr>
 
  <tr><th colspan=2><input type="submit" name="submit" 
-value="Register"></th></tr> </table>
+value="Register" class="btn btn-primary"></th></tr> </table>
 
- </form>
+ </form> -->
 
 
  <?php

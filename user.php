@@ -2,7 +2,7 @@
 
  // Connects to your Database 
 
- mysql_connect("127.0.0.1", "root", "") or die(mysql_error()); 
+ mysql_connect("127.0.0.1", "root", "itsover") or die(mysql_error()); 
 
  mysql_select_db("hpl") or die(mysql_error()); 
 
