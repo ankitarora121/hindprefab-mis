@@ -2,7 +2,8 @@
 <?php
 session_start();
 
-if ( !isset( $_COOKIE["ID_my_site"] ) ) {
+if (!isset($_COOKIE["ID_my_site"]) || !$_SESSION["is_admin"])
+{
   header( "Location: login.php" );
 }
 
@@ -35,6 +36,7 @@ echo <<<EOF
 <TH>END DATE (CLIENT)</TH>
 </tr></thead>
 EOF;
+echo "<form action=projectdetails.php method=post><tbody>";
 while ( $row = mysqli_fetch_array( $result ) ) {
   echo "<tr>";
   echo "<td>" . $row['project_id'] . "</td>";
@@ -49,8 +51,14 @@ while ( $row = mysqli_fetch_array( $result ) ) {
   echo "<td>" . $row['startdate_client'] . "</td>";
   echo "<td>" . $row['enddate_client'] . "</td>";
 
+  echo "<td>";
+  $abcd=$row['project_id'];
+  //echo "Details";
+  echo '<input type="radio" value=$abcd name="rad">';
+  echo "</td>";
 }
-echo  '</tbody>';
+echo  '</tbody> <input type=submit value="SUBMIT" class="btn btn-primary">';
+echo " </form>";
 echo "</table>";
 setcookie( "ID_my_site", "", time()-3600 );
 

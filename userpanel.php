@@ -1,18 +1,17 @@
 <?php include("_barebones.php"); ?>
-
-
 <?php
+session_start();
 
-setcookie("ID_my_site", "Alex Porter", time()+120);?>
-
+if (!isset($_COOKIE["ID_my_site"]))
+{
+	header( "Location: login.php" );
+}
+?>
 
 <center>
-<h1>
-WELCOME TO USER VIEWING MODE
-</H1>
-<a href=viewall.php> VIEW ALL PROJECTS  </a><br>
-<a href=viewID.php> VIEW BY PROJECT ID  </A><br>
-<a href=viewro.php> VIEW BY REGIONAL OFFICE </a>
+
+<a href=viewall.php>View All Projects</a> <br>
+<a href=addnewuser.php>Manage Your Projects <br>
+
+
 </center>
-</body>
-</html>
