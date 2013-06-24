@@ -36,12 +36,18 @@ echo <<<EOF
 </tr></thead>
 EOF;
 while ( $row = mysqli_fetch_array( $result ) ) {
+  $newquery = "SELECT fullname FROM `users` WHERE user_id=" . $row['project_coordinator'];
+  // $newresult=mysql_query($newquery);
+  // $newrow = mysql_fetch_row($newresult);
+  $getname = mysqli_fetch_assoc(mysqli_query($con, $newquery));
+  $fullname = $getname['fullname'];
+
   echo "<tr>";
   echo "<td>" . $row['project_id'] . "</td>";
   echo "<td>" . $row['project_name'] . "</td>";
   echo "<td>" . $row['client'] . "</td>";
   echo "<td>" . $row['contractor'] . "</td>";
-  echo "<td>" . $row['project_coordinator'] . "</td>";
+  echo "<td>" . $fullname. "</td>";
   echo "<td>" . $row['regional_office'] . "</td>";
   echo "<td>" . $row['remarks_status'] . "</td>";
   echo "<td>" . $row['startdate_contr'] . "</td>";
