@@ -2,14 +2,14 @@
 <?php
 session_start();
 
-if (!isset($_COOKIE["ID_my_site"]) || !$_SESSION["is_admin"])
+if (!isset($_COOKIE["Key_my_site"]) || !$_SESSION["is_admin"])
 {
   header( "Location: login.php" );
 }
 
 ?>
 
-<form class="form-horizontal">
+<form class="form-horizontal" action="createproject_process.php" method="post">
 <fieldset>
 
 <!-- Form Name -->

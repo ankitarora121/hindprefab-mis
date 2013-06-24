@@ -11,33 +11,33 @@ mysql_select_db( "hpl" ) or die( mysql_error() );
 
 //Checks if there is a login cookie
 
-if ( isset( $_COOKIE['ID_my_site'] ) )
-	//if there is, it logs you in and directes you to the members page
+// if ( isset( $_COOKIE['ID_my_site'] ) )
+// 	//if there is, it logs you in and directes you to the members page
 
-{
-	$username = $_COOKIE['ID_my_site'];
+// {
+// 	$username = $_COOKIE['ID_my_site'];
 
-	$pass = $_COOKIE['Key_my_site'];
+// 	$pass = $_COOKIE['Key_my_site'];
 
-	$check = mysql_query( "SELECT * FROM users WHERE username = '$username'" )or die( mysql_error() );
+// 	$check = mysql_query( "SELECT * FROM users WHERE username = '$username'" )or die( mysql_error() );
 
-	while ( $info = mysql_fetch_array( $check ) ) {
+// 	while ( $info = mysql_fetch_array( $check ) ) {
 
-		if ( $pass != $info['password'] ) {
+// 		if ( $pass != $info['password'] ) {
 
-		}
+// 		}
 
-		else {
+// 		else {
 
-			header( "Location: userpanel.php" );
+// 			header( "Location: userpanel.php" );
 
 
 
-		}
+// 		}
 
-	}
+// 	}
 
-}
+// }
 
 
 //if the login form is submitted
@@ -74,7 +74,7 @@ if ( isset( $_POST['submit'] ) ) { // if form has been submitted
 
 	if ( $check2 == 0 ) {
 
-		die( 'That user does not exist in our database. <a href=add.php>Click Here to Register</a>' );
+		die( 'That user does not exist in our database.' );
 
 	}
 
@@ -99,8 +99,6 @@ if ( isset( $_POST['submit'] ) ) { // if form has been submitted
 
 
 			// if login is ok then we add a cookie
-
-			$_POST['username'] = stripslashes( $_POST['username'] );
 
 			$hour = time() + 3600;
 

@@ -2,7 +2,7 @@
 <?php
 session_start();
 
-if (!isset($_COOKIE["ID_my_site"]))
+if (!isset($_COOKIE["Key_my_site"]))
 {
 	header( "Location: login.php" );
 }
