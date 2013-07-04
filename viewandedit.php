@@ -21,7 +21,7 @@ if ( mysqli_connect_errno() ) {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 echo <<<EOF
-<table class="table table-hover">
+<table class="table table-hover table-bordered">
 <thead><tr>
 <th> </th>
 <th>PROJECT ID</th>
@@ -37,7 +37,7 @@ echo <<<EOF
 <TH>END DATE (CLIENT)</TH>
 </tr></thead>
 EOF;
-echo "<form action=projectdetails.php method=post><tbody>";
+echo '<form action="projectdetails.php" method="post"><tbody>';
 while ( $row = mysqli_fetch_array( $result ) ) {
   $newquery = "SELECT fullname FROM `users` WHERE user_id=" . $row['project_coordinator'];
   // $newresult=mysql_query($newquery);
@@ -46,11 +46,10 @@ while ( $row = mysqli_fetch_array( $result ) ) {
   $fullname = $getname['fullname'];
 
   echo "<tr>";
-
   echo "<td>";
   $abcd=$row['project_id'];
-  //echo "Details";
-  echo '<input type="radio" value=$abcd name="rad">';
+  // echo $abcd;
+  echo '<input type="radio" value="'. $abcd .'" name="rad">';
   echo "</td>";
 
   echo "<td>" . $row['project_id'] . "</td>";
@@ -69,7 +68,7 @@ while ( $row = mysqli_fetch_array( $result ) ) {
 
   
 }
-echo  '</tbody> <input type=submit value="SUBMIT" class="btn btn-primary">';
+echo  '</tbody> <center><input type=submit value="View/Edit Subtasks" class="btn btn-primary" style="margin-bottom: 30px;"></center>';
 echo " </form>";
 echo "</table>";
 setcookie( "ID_my_site", "", time()-3600 );

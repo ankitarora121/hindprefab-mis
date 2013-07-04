@@ -20,7 +20,7 @@ if ( mysqli_connect_errno() ) {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 echo <<<EOF
-<table class="table table-hover">
+<table class="table table-hover table-bordered">
 <thead><tr>
 <th>PROJECT ID</th>
 <th>PROJECT NAME</th>
@@ -58,6 +58,5 @@ while ( $row = mysqli_fetch_array( $result ) ) {
 }
 echo  '</tbody>';
 echo "</table>";
-setcookie( "ID_my_site", "", time()-3600 );
 
 ?>
