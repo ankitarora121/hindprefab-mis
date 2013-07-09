@@ -1,4 +1,13 @@
 <?php include "_barebones.php"; ?>
+<ul class="breadcrumb">
+  <li><a href="login.php">Home</a><span class="divider">/</span></li>
+  <li><a href="adminpanel.php">Admin Panel</a><span class="divider">/</span></li>
+  <li><a href="viewandedit.php">View and Edit Projects</a><span class="divider">/</span></li>
+  <li><a href="projectdetails.php">Project Details</a><span class="divider">/</span></li>
+  <li class="active">Processing...</li>
+</ul>
+
+
 <?php
 session_start();
 
@@ -31,8 +40,9 @@ echo <<<EOF
 <form action="adminpanel.php">
     <input type="submit" value="Admin Panel" class="btn btn-success">
 </form>
-<form action="projectdetails.php">
-    <input type="submit" value="Add another subtask" class="btn btn-primary">
+<form action="projectdetails.php" method="POST">
+<input type="hidden" name="rad" id="rad" value="$_POST[project_id]" />
+<input type="submit" value="Add another subtask" class="btn btn-primary">
 </form>
 EOF;
 

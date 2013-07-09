@@ -1,4 +1,13 @@
 <?php include "_barebones.php"; ?>
+<ul class="breadcrumb">
+  <li><a href="login.php">Home</a><span class="divider">/</span></li>
+  <li><a href="adminpanel.php">Admin Panel</a><span class="divider">/</span></li>
+  <li class="active">View and Edit Projects</li>
+
+</ul>
+
+
+
 <?php
 session_start();
 
@@ -51,26 +60,36 @@ while ( $row = mysqli_fetch_array( $result ) ) {
   // echo $abcd;
   echo '<input type="radio" value="'. $abcd .'" name="rad">';
   echo "</td>";
-
-  echo "<td>" . $row['project_id'] . "</td>";
-  echo "<td>" . $row['project_name'] . "</td>";
-  echo "<td>" . $row['client'] . "</td>";
-  echo "<td>" . $row['contractor'] . "</td>";
-  echo "<td>" . $fullname. "</td>";
-  echo "<td>" . $row['regional_office'] . "</td>";
-  echo "<td>" . $row['remarks_status'] . "</td>";
-  echo "<td>" . $row['startdate_contr'] . "</td>";
-  echo "<td>" . $row['enddate_contr'] . "</td>";
-  echo "<td>" . $row['startdate_client'] . "</td>";
-  echo "<td>" . $row['enddate_client'] . "</td>";
+  echo '<td>' . $row['project_id'] . '</td>';
+  echo '<td><a href="#" data-url="scripteditproject.php" data-type="text" id="project_name" data-pk="'.$row['project_name'].'"> ' . $row['project_name'] . '</a></td>';
+  echo '<td><a href="#" data-url="scripteditproject.php" data-type="text" id="client" data-pk="'.$row['client'].'"> ' . $row['client'] . '</a></td>';
+  echo '<td><a href="#" data-url="scripteditproject.php" data-type="text" id="contractor" data-pk="'.$row['contractor'].'"> ' . $row['contractor'] . '</a></td>';
+  echo '<td>' . $fullname . '</td>';
+  echo '<td><a href="#" data-url="scripteditproject.php" data-type="text" id="regional_office" data-pk="'.$row['regional_office'].'"> ' . $row['regional_office'] . '</a></td>';
+  echo '<td><a href="#" data-url="scripteditproject.php" data-type="text" id="remarks_status" data-pk="'.$row['remarks_status'].'"> ' . $row['remarks_status'] . '</a></td>';
+  echo '<td><a href="#" data-url="scripteditproject.php" data-type="date" id="startdate_contr" data-pk="'.$row['startdate_contr'].'"> ' . $row['startdate_contr'] . '</a></td>';
+  echo '<td><a href="#" data-url="scripteditproject.php" data-type="date" id="enddate_contr" data-pk="'.$row['enddate_contr'].'"> ' . $row['enddate_contr'] . '</a></td>';
+  echo '<td><a href="#" data-url="scripteditproject.php" data-type="date" id="startdate_client" data-pk="'.$row['startdate_client'].'"> ' . $row['startdate_client'] . '</a></td>';
+  echo '<td><a href="#" data-url="scripteditproject.php" data-type="date" id="enddate_client" data-pk="'.$row['enddate_client'].'"> ' . $row['enddate_client'] . '</a></td>';
 
   echo "</tr>";
 
   
 }
-echo  '</tbody> <center><input type=submit value="View/Edit Subtasks" class="btn btn-primary" style="margin-bottom: 30px;"></center>';
+echo  '</tbody> <center style="margin-bottom:30px"><input type=submit value="View/Edit Subtasks" class="btn btn-primary" style="width:200px; margin-right:40px;"><input type="button" style="width:200px" id="enable" value="Enable/Disable Edit" class="btn"></center>';
 echo " </form>";
 echo "</table>";
-setcookie( "ID_my_site", "", time()-3600 );
 
 ?>
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+   $('#enable').click(function() {
+     
+      $('#project_name,#client,#contractor,#regional_office,#remarks_status,#startdate_contr,#enddate_contr,#startdate_client,#enddate_client').editable('toggleDisabled');
+  });  
+  $.fn.editable.defaults.mode = 'inline';
+});
+</script>

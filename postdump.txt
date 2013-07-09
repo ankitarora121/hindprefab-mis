@@ -1,0 +1,1 @@
+UPDATE `projectdetails` SET `actual_finish` = '2017-11-04' WHERE sno = 15

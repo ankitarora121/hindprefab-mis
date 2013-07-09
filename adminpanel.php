@@ -1,4 +1,9 @@
 <?php include("_barebones.php"); ?>
+<ul class="breadcrumb">
+	<li><a href="login.php">Home</a><span class="divider">/</span></li>
+	<li class="active">Admin Panel</li>
+
+</ul>
 <?php
 session_start();
 

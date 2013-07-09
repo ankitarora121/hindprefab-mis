@@ -1,4 +1,8 @@
-
+<?php include("_barebones.php"); ?>
+<ul class="breadcrumb">
+  <li><a href="login.php">Home</a><span class="divider">/</span></li>
+  <li class="active">Check Login</li>
+</ul>
 
 <?php
 
@@ -42,9 +46,10 @@ mysql_select_db( "hpl" ) or die( mysql_error() );
 
 //if the login form is submitted
 
-if ( isset( $_POST['submit'] ) ) { // if form has been submitted
+if ( $_POST['submit'] == "Login") { // if form has been submitted
+	session_start();
 
-
+	$_SESSION['usernamesave']=$_POST['username'];
 
 	// makes sure they filled it in
 
@@ -111,11 +116,11 @@ if ( isset( $_POST['submit'] ) ) { // if form has been submitted
 			//then redirect them to the members area
 			if ( $info['admin']==1 ) {
 
-				session_start();
+				// session_start();
 				$_SESSION["is_admin"] = true;
 				header( "Location: adminpanel.php" ); }
 			else {
-				session_start();
+				// session_start();
 				$_SESSION["is_admin"] = false;
 				header( "Location: userpanel.php" );
 			}
@@ -126,8 +131,9 @@ if ( isset( $_POST['submit'] ) ) { // if form has been submitted
 
 }
 
-else {
+else if ( $_POST['submit'] == "Change Password" ){
 
+	header( "Location: changepassword.php" );
 }
 
 // if they are not logged in

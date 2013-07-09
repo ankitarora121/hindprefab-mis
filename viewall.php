@@ -1,4 +1,12 @@
 <?php include "_barebones.php"; ?>
+
+<ul class="breadcrumb">
+  <li><a href="login.php">Home</a><span class="divider">/</span></li>
+  <li><a href="userpanel.php">User Panel</a><span class="divider">/</span></li>
+  <li class="active">View all Projects</li>
+</ul>
+
+
 <?php
 session_start();
 

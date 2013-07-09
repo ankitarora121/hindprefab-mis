@@ -1,5 +1,7 @@
 <?php include("_barebones.php"); ?>
-
+<ul class="breadcrumb">
+	<li class="active">Home<span class="divider">/</span></li>
+</ul>
 
 
 <form class="form-horizontal" action="checklogin.php" method="post">
@@ -31,44 +33,14 @@
   <label class="control-label" for="singlebutton"></label>
   <div class="controls">
    	<input type="submit" name="submit" value="Login" class="btn btn-primary">  
-
+   	<input type="submit" name="submit" value="Change Password" class="btn">
   </div>
 </div>
 
 </fieldset>
 </form>
 
-<!-- 
 
-
-	 <table border="0"> 
-
-	 <tr><td colspan=2><h1>Login</h1></td></tr> 
-
-	 <tr><td><label class="control-label">Username:</label></td><td> 
-
-<div class="controls">
-	 <input type="text" name="username" maxlength="40"> 
-</div>
-	 </td></tr> 
-
-	 <tr><td><label class="control-label">Password:</label></td><td> 
-
-<div class="controls">
-	 <input type="password" name="pass" maxlength="50"> 
-</div>
-	 </td></tr> 
-
-	 <tr><td colspan="2" align="right"> 
-
-<div class="controls">
-	 <input type="submit" name="submit" value="Login"> 
-</div>
-	 </td></tr> 
-
-	 </table> 
-
-	 </form> -->
 
 
 
